@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const socket=io(import.meta.env.VITE_API_URL)
 function ConnectionButton({userId}) {
 let {serverUrl}=useContext(authDataContext)
-let {userData,setUserData}=useContext(userDataContext)
+let {userData}=useContext(userDataContext)
 let [status,setStatus]=useState("")
 let navigate=useNavigate()
     const handleSendConnection=async ()=>{
