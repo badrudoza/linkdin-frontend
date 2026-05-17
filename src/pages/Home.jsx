@@ -74,7 +74,7 @@ getPost()
      
        <div className='w-full lg:w-[25%] min-h-[200px] bg-[white] shadow-lg rounded-lg p-[10px] relative '>
        <div className='w-[100%] h-[100px] bg-gray-400 rounded overflow-hidden flex items-center justify-center relative cursor-pointer' onClick={()=>setEdit(true)}>
-        <img src={userData.coverImage || ""} alt="" className='w-full'/>
+        <img src={userData.coverImage || null} alt="" className='w-full'/>
         <FiCamera className='absolute right-[20px] top-[20px] w-[25px] h-[25px] text-white cursor-pointer'/>
        </div>
        <div className='w-[70px] h-[70px] rounded-full overflow-hidden flex items-center justify-center absolute top-[65px] left-[35px] cursor-pointer' onClick={()=>setEdit(true)}>
@@ -104,10 +104,10 @@ getPost()
         </div>
         <div className='text-[22px]'>{`${userData.firstName} ${userData.lastName}`}</div>
         </div>
-      <textarea className={`w-full ${frontendImage?"h-[200px]":"h-[550px]"} outline-none border-none p-[10px] resize-none text-[19px]`} placeholder='what do you want to talk about..?' value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
+      <textarea className={`w-full ${Image?"h-[200px]":"h-[550px]"} outline-none border-none p-[10px] resize-none text-[19px]`} placeholder='what do you want to talk about..?' value={description} onChange={(e)=>setDescription(e.target.value)}></textarea>
       <input type="file" ref={image} hidden onChange={handleImage}/>
           <div className='w-full h-[300px] overflow-hidden flex justify-center items-center rounded-lg' >
-            <img src={frontendImage || ""} alt="" className='h-full rounded-lg'/>
+            <img src={frontendImage || null} alt="" className='h-full rounded-lg'/>
           </div>
 
 

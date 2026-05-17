@@ -29,15 +29,30 @@ const handleSignOut=async ()=>{
     }
 }
 
-const handleSearch=async ()=>{
-try {
-  let result=await axios.get(`${serverUrl}/api/user/search?query=${searchInput}`,{withCredentials:true})
-setSearchData(result.data)
-} catch (error) {
-  setSearchData([])
-  console.log(error)
-}
-}
+const handleSearch = async () => {
+  try {
+    if (!searchInput.trim()) {
+      setSearchData([]);
+      return;
+    }
+
+    const result = await axios.get(
+      `${serverUrl}/api/user/search`,
+      {
+        params: {
+          query: searchInput,
+        },
+        withCredentials: true,
+      }
+    );
+
+    setSearchData(result.data);
+
+  } catch (error) {
+    console.log(error);
+    setSearchData([]);
+  }
+};
 
 useEffect(()=>{
 
